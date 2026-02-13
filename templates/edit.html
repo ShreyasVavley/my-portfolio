@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white p-8">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6 text-blue-500">Edit Project: {{ project.title }}</h1>
+        <form method="POST" class="space-y-4">
+            <input type="text" name="title" value="{{ project.title }}" class="w-full p-3 bg-zinc-900 border border-zinc-800 rounded">
+            <input type="text" name="tech_stack" value="{{ project.tech_stack }}" class="w-full p-3 bg-zinc-900 border border-zinc-800 rounded">
+            <input type="text" name="link" value="{{ project.link }}" class="w-full p-3 bg-zinc-900 border border-zinc-800 rounded">
+            <textarea name="description" class="w-full p-3 bg-zinc-900 border border-zinc-800 rounded" rows="5">{{ project.description }}</textarea>
+            <div class="flex gap-4">
+                <button type="submit" class="bg-blue-600 px-6 py-2 rounded font-bold">Update</button>
+                <a href="/admin" class="bg-zinc-800 px-6 py-2 rounded font-bold">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

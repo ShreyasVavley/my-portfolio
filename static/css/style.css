@@ -1,0 +1,112 @@
+/* --- Root Variables & Reset --- */
+:root {
+    --bg-black: #000000;
+    --zinc-950: #09090b;
+    --zinc-900: #18181b;
+    --zinc-800: #27272a;
+    --accent-blue: #2563eb;
+    --accent-purple: #9333ea;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- Engineering Dot Grid Background --- */
+.dot-grid {
+    background-image: radial-gradient(#1a1a1a 1px, transparent 0);
+    background-size: 32px 32px;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-black);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--zinc-800);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+/* --- AI Project Special Glow --- */
+.ai-project-glow {
+    position: relative;
+    border: 1px solid rgba(37, 99, 235, 0.4) !important;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+}
+
+@keyframes ai-pulse {
+    0% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(37, 99, 235, 0.4); }
+    100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); }
+}
+
+.ai-project-glow:hover {
+    animation: ai-pulse 2s infinite ease-in-out;
+    border-color: var(--accent-blue) !important;
+    transform: translateY(-8px);
+}
+
+/* --- Typography & Elements --- */
+.text-gradient {
+    background: linear-gradient(to right, #60a5fa, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+}
+
+.card {
+    background: var(--zinc-950);
+    border: 1px solid var(--zinc-900);
+    border-radius: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: #000000;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: var(--accent-blue);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+#scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+    z-index: 9999;
+}

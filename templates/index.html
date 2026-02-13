@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyas S V | CSE (AIML) Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dot-grid selection:bg-blue-500/30">
+
+    <div id="scroll-indicator"></div>
+
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-zinc-900 py-4 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="text-xl font-bold tracking-tighter">SV.EXE</span>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-zinc-400 items-center">
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#projects" class="hover:text-white transition">Projects</a>
+                <a href="#skills" class="hover:text-white transition">Skills</a>
+                <a href="https://github.com/shreyasvavley" target="_blank" class="hover:text-white">GitHub</a>
+                <a href="https://www.linkedin.com/in/shreyas-vavley-362a3b2b8/" target="_blank" class="hover:text-blue-500">LinkedIn</a>
+                <a href="/login" class="bg-zinc-900 px-4 py-1 rounded-full border border-zinc-800 hover:text-blue-500 transition">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
+        <div class="text-center z-10" data-aos="zoom-out" data-aos-duration="1500">
+            <h1 class="text-5xl md:text-8xl font-black mb-4 tracking-tight">
+                SHREYAS <span class="text-gradient">VAVLEY</span>
+            </h1>
+            <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                Sophomore CSE (AIML) at Sapthagiri NPS University. Building intelligent backend architectures and securing digital assets.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="/static/resume.pdf" target="_blank" class="btn-primary">Download CV</a>
+                <a href="#projects" class="px-8 py-3 rounded-full border border-zinc-800 font-bold hover:bg-zinc-900 transition">View Work</a>
+            </div>
+        </div>
+    </section>
+<section id="contact" class="section-container border-t border-zinc-900">
+    <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8"><span class="text-blue-500 mr-2">//</span> Get In Touch</h2>
+        <form action="/contact" method="POST" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" name="name" placeholder="Name" class="bg-zinc-900 border border-zinc-800 p-3 rounded-xl w-full outline-none focus:border-blue-500" required>
+                <input type="email" name="email" placeholder="Email" class="bg-zinc-900 border border-zinc-800 p-3 rounded-xl w-full outline-none focus:border-blue-500" required>
+            </div>
+            <textarea name="content" placeholder="Message" class="bg-zinc-900 border border-zinc-800 p-3 rounded-xl w-full h-32 outline-none focus:border-blue-500" required></textarea>
+            <button type="submit" class="btn-primary w-full py-4">Send Message</button>
+        </form>
+    </div>
+</section>
+
+    <section id="about" class="section-container border-t border-zinc-900">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-3xl font-bold mb-6">
+                    <span class="text-blue-500 mr-2">//</span> Behind the Code
+                </h2>
+                <p class="text-zinc-400 leading-relaxed mb-6">
+                    I am <span class="text-white font-semibold">Shreyas S V</span>, a dedicated Computer Science student specializing in 
+                    <span class="text-white font-semibold">Artificial Intelligence and Machine Learning</span>. My journey is defined by a passion 
+                    for building intelligent backend architectures and a deep commitment to securing digital assets through ethical hacking and cybersecurity.
+                </p>
+                <p class="text-zinc-400 leading-relaxed">
+                    Currently in my <span class="text-white font-semibold">sophomore year</span>, I focus on bridging the gap between theoretical algorithms 
+                    and real-world applications. Whether developing assistants like <span class="text-blue-400">'Vavley'</span> 
+                    or full-stack platforms, I solve complex problems with efficient code.
+                </p>
+            </div>
+            <div class="card p-8 bg-zinc-900/50 border-blue-500/20" data-aos="fade-left">
+                <h3 class="text-xl font-bold mb-4 text-gradient">Technical Focus</h3>
+                <ul class="space-y-4 text-sm text-zinc-400">
+                    <li class="flex items-center"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span> Neural Networks & DeepFace</li>
+                    <li class="flex items-center"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span> Ethical Hacking (Rinex Certified)</li>
+                    <li class="flex items-center"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span> Scalable Backend Design (Flask/Java)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-container border-t border-zinc-900">
+        <h2 class="text-3xl font-bold mb-12 flex items-center" data-aos="fade-right">
+            <span class="text-blue-500 mr-2">//</span> Selected Work
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            {% for project in projects %}
+            <div class="card p-8 group {% if 'AI' in project.tech_stack or 'Python' in project.tech_stack %}ai-project-glow{% endif %}" data-aos="fade-up">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="p-3 bg-zinc-900 rounded-lg group-hover:bg-blue-600/10 transition">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <a href="{{ project.link }}" target="_blank" class="text-zinc-500 hover:text-white transition text-xs font-mono uppercase">Live Demo →</a>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">{{ project.title }}</h3>
+                <p class="text-zinc-400 text-sm mb-6 leading-relaxed">{{ project.description }}</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for tech in project.tech_stack.split(',') %}
+                    <span class="text-[10px] uppercase tracking-widest font-bold px-3 py-1 bg-zinc-900 border border-zinc-800 rounded-full text-zinc-500">{{ tech.strip() }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="skills" class="section-container border-t border-zinc-900">
+        <h2 class="text-3xl font-bold mb-12" data-aos="fade-right">Arsenal</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card p-6" data-aos="fade-up">
+                <h4 class="font-bold mb-4">Python & AI</h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
+            </div>
+            <div class="card p-6" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="font-bold mb-4">Cybersecurity</h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 80%; background: #3b82f6;"></div></div>
+            </div>
+            <div class="card p-6" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="font-bold mb-4">Java Backend</h4>
+                <div class="progress-bar"><div class="progress-fill" style="width: 85%; background: #ef4444;"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-zinc-900 text-center text-zinc-600 text-xs">
+        <p>&copy; 2026 Shreyas S V. .</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-indicator").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>
