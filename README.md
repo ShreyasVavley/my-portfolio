@@ -19,8 +19,8 @@ A high-performance personal portfolio and administrative dashboard built with Fl
 ## 📂 2nd-Year Project Highlights
 * **Python Face Recognition:** Real-time identity verification using DeepFace and OpenCV.
 * **Vavley AI Assistant:** Python-based assistant with Telegram integration for remote desktop control.
-* **3D Menu Visualizer:** Interactive 3D frontend with a PostgreSQL backend.
-* **Masala E-Commerce:** Full-stack product platform featuring secure transaction logic.
+
+https://shreyasvavley.pythonanywhere.com/
 
 ## 🔧 Installation & Setup
 1. **Clone the repository:**
